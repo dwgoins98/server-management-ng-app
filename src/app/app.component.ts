@@ -1,12 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'server-management-ng-app';
+  currentStatus = 'online';
+
+  dummyTrafficData: { id: string, value: number }[] = [
+    { id: 'd1', value: Math.floor(Math.random() * 900) + 100 },
+    { id: 'd2', value: Math.floor(Math.random() * 900) + 100 },
+    { id: 'd3', value: Math.floor(Math.random() * 900) + 100 },
+    { id: 'd4', value: Math.floor(Math.random() * 900) + 100 },
+    { id: 'd5', value: Math.floor(Math.random() * 900) + 100 },
+    { id: 'd6', value: Math.floor(Math.random() * 900) + 100 },
+    { id: 'd7', value: Math.floor(Math.random() * 900) + 100 }
+  ];
+
+  maxTrafficValue = Math.max(...this.dummyTrafficData.map(data => data.value));
 }
